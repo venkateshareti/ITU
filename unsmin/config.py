@@ -29,6 +29,11 @@ class DevelopmentConfig(Config):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'test.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    LOGIN_URL = "https://unsmin.dss.un.org/Login-Registration/UNSMIN-Login?returnurl=%2f"
+    PROFILE_X_RAY_URL = "https://unsmin.dss.un.org/TRIP/Profile-X-ray"
+    REPORT_URL = "https://unsmin.dss.un.org/Reports"
+    USERNAME = "thierry.zaradez@itu.int"
+    PASSWORD = "ITUduringdev-4321"
 
 
 class TestingConfig(Config):
@@ -37,12 +42,20 @@ class TestingConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'test.db')
     PRESERVE_CONTEXT_ON_EXCEPTION = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    LOGIN_URL = "https://unsmin.dss.un.org/Login-Registration/UNSMIN-Login?returnurl=%2f"
+    PROFILE_X_RAY_URL = "https://unsmin.dss.un.org/TRIP/Profile-X-ray"
+    REPORT_URL = "https://unsmin.dss.un.org/Reports"
+    USERNAME = "thierry.zaradez@itu.int"
+    PASSWORD = "ITUduringdev-4321"
 
 
 class ProductionConfig(Config):
     DEBUG = False
-    # uncomment the line below to use postgres
-    # SQLALCHEMY_DATABASE_URI = postgres_local_base
+    LOGIN_URL = "https://unsmin.dss.un.org/Login-Registration/UNSMIN-Login?returnurl=%2f"
+    PROFILE_X_RAY_URL = "https://unsmin.dss.un.org/TRIP/Profile-X-ray"
+    REPORT_URL = "https://unsmin.dss.un.org/Reports"
+    USERNAME = "thierry.zaradez@itu.int"
+    PASSWORD = "ITUduringdev-4321"
 
 
 config_by_name = dict(

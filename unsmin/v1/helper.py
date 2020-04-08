@@ -110,7 +110,6 @@ def validating_data(df, name, date):
     df_values = df[((df['Status'] == 'Cleared') | (df['Status'] == 'Approved')) & (df['ML'].str.contains(name)) &
                    ((df['Travel'] == c_date) | (df['Travel'] == b_date))]
 
-    print("validating....")
     return df_values
 
 
