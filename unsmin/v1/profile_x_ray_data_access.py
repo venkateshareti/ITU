@@ -25,7 +25,6 @@ api = Api(data_search_and_access)
 class DataSearchAndAccess(Resource):
     
     def get(self):
-        #import pdb;pdb.set_trace()
         if request.args:
             search_mail = request.args.get('email')
             date = request.args.get('date')
@@ -37,7 +36,6 @@ class DataSearchAndAccess(Resource):
         date_validation = validating_date(date)
         if not date_validation:
             return {"message": "Invalid date/ date format should be yyyymmdd "},400
-        # request session
         session = requests.Session()
 
         try:

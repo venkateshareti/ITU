@@ -15,7 +15,6 @@ def validating_date(date):
     try:
         date = datetime.strptime(date, d_format)
         if date:
-            print(date)
             return True
     except Exception as e:
         app.logger.error(
@@ -41,9 +40,9 @@ def make_request(session=None, url=None, method="get", params={}, headers={}):
             response = session.post(url, params)
         else:
             response = session.get(url)
-        print("total time for connectiong the url", time.time()-start_time)
+        app.logger.info("total time for connecting the url: {} Time: {}".format(url,time.time()-start_time))
     except Exception as e:
-        print("Exception While connecting to the url: {} and Error is: {}".format(url, e))
+        app.logger.error("Exception While connecting to the url: {} and Error is: {}".format(url, e))
         response = {}
     return response
 
@@ -80,7 +79,6 @@ def get_val(content, f_val):
 
 
 def get_table_values_data(content):
-    #import pdb;pdb.set_trace()
     column_names = ['Travel', 'ML', 'Submited', 'Status']
     df = pd.DataFrame(columns=column_names)
 
@@ -105,7 +103,6 @@ def pagination_data_parameters(response):
 
 def validating_data(df, name, date):
     d_format = "%Y%m%d"
-    # import pdb;pdb.set_trace()
     c_date, b_date = date_formating(date, d_format)
     df_values = df[((df['Status'] == 'Cleared') | (df['Status'] == 'Approved')) & (df['ML'].str.contains(name)) &
                    ((df['Travel'] == c_date) | (df['Travel'] == b_date))]
