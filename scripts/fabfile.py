@@ -31,7 +31,6 @@ def deploy(install_config="yes", apache_service="httpd", ssl_only="no"):
             run("pip install -r requirements.txt")
             run("DONE.......")
 
-
     # Wait for a while
     time.sleep(2)
     #start_service(apache_service)
