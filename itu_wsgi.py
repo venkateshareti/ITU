@@ -1,6 +1,7 @@
 #! /usr/bin/python3.6
 
-import os, sys
+import os
+import sys
 
 python_home = '/opt/ituflask/ituvenv'
 from unsmin.config import basedir
