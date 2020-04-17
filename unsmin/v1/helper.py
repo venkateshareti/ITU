@@ -125,3 +125,32 @@ def display_data_parameters(p_list_data, search_mail):
     p_list_data['__VIEWSTATEENCRYPTED'] = ""
 
     return p_list_data
+
+
+def get_report_search_page_params(response):
+    bs_content = BeautifulSoup(response.content, "html.parser")
+    data = dict()
+    data["Scriptmanager1"] = "UpdatePanel1|btnSimulate"
+    data['__EVENTTARGET'] = "btnSimulate"
+    data['__EVENTARGUMENT'] = ""
+    data['__VIEWSTATE'] = bs_content.find("input", {"name": "__VIEWSTATE"})["value"]
+    data['__VIEWSTATEGENERATOR'] = bs_content.find("input", {"name": "__VIEWSTATEGENERATOR"})["value"]
+    data['__EVENTVALIDATION'] = bs_content.find("input", {"name": "__EVENTVALIDATION"})["value"]
+    data["ReportViewer1$ctl03$ctl00"] = ""
+    data["ReportViewer1$ctl03$ctl01"] = ""
+    data["ReportViewer1$isReportViewerInVs"] = ""
+    data["ReportViewer1$ctl14"] = ""
+    data["ReportViewer1$ctl15"] = "standards"
+    data["ReportViewer1$AsyncWait$HiddenCancelField"] = False
+    data["ReportViewer1$ToggleParam$store"] = ""
+    data["ReportViewer1$ToggleParam$collapse"] = False
+    data["ReportViewer1$ctl12$ClientClickedId"] = ""
+    data["ReportViewer1$ctl11$store"] = ""
+    data["ReportViewer1$ctl11$collapse"] = False
+    data["ReportViewer1$ctl13$VisibilityState$ctl00"] = None
+    data["ReportViewer1$ctl13$ScrollPosition"] = ""
+    data["ReportViewer1$ctl13$ReportControl$ctl02"] = ""
+    data["ReportViewer1$ctl13$ReportControl$ctl03"] = ""
+    data["ReportViewer1$ctl13$ReportControl$ctl04"] = 100
+    data["__ASYNCPOST"] = True
+    return data
