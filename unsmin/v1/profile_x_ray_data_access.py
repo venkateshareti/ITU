@@ -80,7 +80,7 @@ class DataSearchAndAccess(Resource):
                 content = BeautifulSoup(profile_x_ray_search_post_resp.content, "html.parser")
 
                 if not content.find("span", {"id": "dnn_ctr1237_ProfileXRay_gvUserList_lblName_0"}):
-                    return {"message": "Unable to find the data with mailID {}".format(search_mail)}
+                    return {"message": False}
 
                 if i == 0 and content.find("span", {"id": "dnn_ctr1237_ProfileXRay_gvUserList_lblName_0"}):
                     name_obj = content.find("span", {"id": "dnn_ctr1237_ProfileXRay_gvUserList_lblName_0"}).string.strip()
