@@ -97,7 +97,7 @@ class DataSearchAndAccess(Resource):
                     return {"message": False}
                 if len(df) < 10:
                     return {"message": False}
-
+            return {"message": False}
         except Exception as e:
             app.logger.error("Exception while processing the data for mail_id{} and exception: {}".format(request.args.get('email'),str(e)))
             return CustomException("unable to process your request. Please try again", "500").to_dict()
